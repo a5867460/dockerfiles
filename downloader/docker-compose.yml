@@ -1,0 +1,27 @@
+version: "3"
+services:
+    aria2:
+      image: xujinkai/aria2-with-webui
+      ports:
+        - "6800:6800"
+        - "6880:80"
+        - "6888:8080"
+      volumes:
+        - "./aria2/data:/data"
+        - "./aria2/conf:/conf"
+      environment:
+        - SECRET=yzb
+      restart: always
+
+    transmission:
+      image: linuxserver/transmission
+      ports:
+        - "9091:9091"
+        - "51413:51413"
+        - "51413:51413/udp"
+      volumes:
+        - "./transmission/conf:/config"
+        - "./transmission/downloads:/downloads"
+        - "./transmission/torrents:/watch"
+      environment:
+        - TZ=Asia/Shanghai
