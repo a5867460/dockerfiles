@@ -8,7 +8,7 @@ RUN apk add --no-cache wget bash \
     && tar -zxf frp_0.16.0_linux_amd64.tar.gz \
     && cd frp_0.16.0_linux_amd64 \
     && ls \
-    && mv frps /frps/ \
-    && mv frps.ini /frps/
+    && mv frps /frps/frps \
+    && mv frps.ini /frps/frps.ini
     
 ENTRYPOINT ["/frps/frps", "-c", "/frps/frps.ini"]
