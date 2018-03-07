@@ -9,7 +9,7 @@ RUN apt-get update \
     && apt-get update \
     && apt-get install -y tzdata ca-certificates httpie git aptitude\
     && aptitude search wine \
-    && echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections \
+    && echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections \
     && apt-get install -y wine \
     && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime \
     && echo $TZ > /etc/timezone \
