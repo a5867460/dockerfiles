@@ -10,6 +10,6 @@ RUN sudo apt update \
     cd / \
     mkdir wxdt \
     cd wxdt \
-    git clone git@github.com:cytle/wechat_web_devtools.git \
+    git clone https://github.com/cytle/wechat_web_devtools.git \
     cd wechat_web_devtools \
     ./bin/update_package_nw.s \
