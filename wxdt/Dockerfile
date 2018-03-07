@@ -1,7 +1,6 @@
 FROM ubuntu:16.04
 
-ENV TZ=Asia/Shanghai \
-    WINEARCH=win32 WINEPREFIX=~/.wine32 winecfg
+ENV TZ=Asia/Shanghai
 
 RUN sudo apt update \
     sudo apt install -y tzdata ca-certificates httpie wine git\
