@@ -11,6 +11,7 @@ RUN apt-get update \
     && aptitude search wine \
     && echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections \
     && apt-get install -y wine \
+    && apt-get auto-clean \
     && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime \
     && echo $TZ > /etc/timezone \
     && cd / \
