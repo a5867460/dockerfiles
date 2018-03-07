@@ -2,7 +2,8 @@ FROM ubuntu:16.04
 
 ENV TZ=Asia/Shanghai
 
-RUN add-apt-repository ppa:wine/wine-builds \
+RUN apt-get install software-properties-common python-software-properties \
+    add-apt-repository ppa:wine/wine-builds \
     dpkg --add-architecture i386 \
     apt-get update 
 
