@@ -2,8 +2,8 @@ FROM ubuntu:16.04
 
 ENV TZ=Asia/Shanghai
 
-RUN sudo apt update \
-    sudo apt install -y tzdata ca-certificates httpie wine git\
+RUN apt update \
+    apt install -y tzdata ca-certificates httpie wine git\
     && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
     echo $TZ > /etc/timezone \
     cd / \
