@@ -1,4 +1,4 @@
-FROM mysql:5.7.21
+FROM mysql:5.7
 
 ENV TZ=Asia/Shanghai
 
