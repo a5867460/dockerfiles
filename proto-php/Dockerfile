@@ -21,12 +21,11 @@ RUN curl -sS https://getcomposer.org/installer | php \
     && mv composer.phar /usr/local/bin/composer \
     && composer self-update --clean-backups
 
-RUN docker-php-ext-install -j$(nproc) bcmath
+RUN docker-php-ext-install -j$(nproc) bcmath \
+    && docker-php-ext-install pdo_mysql \
+    && wget https://github.com/grpc/grpc/archive/v1.20.1.tar.gz -O grpc.tar.gz \
+    && wget https://github.com/protocolbuffers/protobuf/releases/download/v3.7.1/protobuf-all-3.7.1.tar.gz -O protobuf.tar.gz
 
-RUN docker-php-ext-install pdo_mysql
-
-COPY ./protobuf-all.tar.gz /protobuf.tar.gz
-COPY ./grpc.tar.gz /grpc.tar.gz
 RUN mkdir protobuf && tar -xf protobuf.tar.gz -C protobuf --strip-components=1 \
     && rm protobuf.tar.gz \
     && ( \
