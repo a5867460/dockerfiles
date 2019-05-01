@@ -7,4 +7,4 @@ RUN apk add --no-cache tzdata ca-certificates \
     echo $TZ > /etc/timezone \
     && apk add tini
 
-ENTRYPOINT ['/sbin/tini', '--']
+ENTRYPOINT ["/sbin/tini", "--"]
