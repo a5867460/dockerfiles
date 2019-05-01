@@ -24,7 +24,8 @@ RUN curl -sS https://getcomposer.org/installer | php \
 RUN docker-php-ext-install -j$(nproc) bcmath \
     && docker-php-ext-install pdo_mysql \
     && wget https://github.com/grpc/grpc/archive/v1.20.1.tar.gz -O grpc.tar.gz \
-    && wget https://github.com/protocolbuffers/protobuf/releases/download/v3.7.1/protobuf-all-3.7.1.tar.gz -O protobuf.tar.gz
+    && wget https://github.com/protocolbuffers/protobuf/releases/download/v3.7.1/protobuf-all-3.7.1.tar.gz -O protobuf.tar.gz \
+    && wget https://dl.google.com/go/go1.12.4.linux-amd64.tar.gz -O go.tar.gz
 
 RUN mkdir protobuf && tar -xf protobuf.tar.gz -C protobuf --strip-components=1 \
     && rm protobuf.tar.gz \
@@ -43,8 +44,6 @@ RUN mkdir grpc && tar -xf grpc.tar.gz -C grpc --strip-components=1 \
         cd grpc \
         && make grpc_php_plugin \
        )
-
-COPY ./go.tar.gz /go.tar.gz
 
 ENV GOROOT=/go GOPATH=/godir PATH=$PATH:/go/bin:/godir/bin
 
